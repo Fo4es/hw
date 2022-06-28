@@ -1,13 +1,11 @@
-export default function User({item,dani}){
+export default function User({item,getPostid}){
+    const onclick = () => {
+        getPostid(item.id);
 
-    return(
-        <div>
-            {item.id}  {item.name}
-            <button onClick={()=>{
-                dani(item);
+    }
+    return (<div>
+        <h2>{item.name} </h2>
+        <button onClick={onclick}>ok</button>
 
-            }
-            }>ok</button>
-        </div>
-            );
+    </div>);
 }
