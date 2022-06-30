@@ -6,6 +6,7 @@ export default function User({item,dani}){
             <button onClick={()=>{
                 dani(item);
 
+
             }
             }>ok</button>
         </div>
