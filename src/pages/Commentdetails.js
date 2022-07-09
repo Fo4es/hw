@@ -9,13 +9,16 @@ export default function Commentdetails(){
          let {id} = useParams();
 
          useEffect(()=>{
-             apiservice.getSingledata(id).then(value=> setPost(value))
+             apiservice.getSingledata(id).then(value=> setPost([{...value}]))
          },[id])
+
 
     return(
         <div>
+
             {
-               posts.map(value => <Postcomponent item={value} key={value.id}/> )
+                posts.map(value => <Postcomponent item={value} key={value.id}/> )
+
             }
         </div>
     );

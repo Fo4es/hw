@@ -1,7 +1,10 @@
-export default function Postcomponent({item:{title,body}}){
+export default function Postcomponent({item:{id,body}}){
     return(
         <div>
-            {title} - {body}
+            <hr/>
+            <h3>details</h3>
+            {id} - {body}
+            <hr/>
         </div>
     );
 }

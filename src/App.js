@@ -7,6 +7,7 @@ function App() {
   return (
       <div>
           <div>
+              <h2>Menu</h2>
               <ul>
                   <li><Link to={'/todos'}>todos</Link></li>
                   <li><Link to={'/album'}>album</Link></li>

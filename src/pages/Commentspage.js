@@ -14,13 +14,14 @@ export default function Commentspage(){
     },[])
     return(
         <div>
+            <Outlet/>
             {
                 comments.map(value => <Commentcomponent item={value} key={value.id}/>)
             }
-            <hr/>
+
             <div>
-            <h3>details</h3>
-             <Outlet/>
+
+
                 </div>
         </div>
     );
