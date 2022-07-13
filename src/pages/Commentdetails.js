@@ -1,8 +1,10 @@
 import {useEffect, useState} from "react";
-
-import ApiServices from "../services/api-services";
 import {useParams} from "react-router-dom";
+
 import Postcomponent from "../component/Postcomponent";
+import ApiServices from "../services/api-services";
+
+
 
 export default function Commentdetails(){
          let [posts,setPost] = useState([]);
