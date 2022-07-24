@@ -39,15 +39,36 @@ const carSlice = createSlice({
                 Object.assign(currentCar, action.payload)
                 state.carUpdate = null
             })
+            .addCase(deleteById.fulfilled, (state, action) => {
+               const index =  state.cars.findIndex(car=>car.id === action.payload);
+                state.cars.splice(index, 1);
+            })
+            .addCase(create.fulfilled, (state, action) => {
+                state.cars.push(action.payload)
+            })
     } )
 
 
 });
+const create = createAsyncThunk(
+    'carSlice/create',
+    async ({car})=>{
+        const {data} = await carService.create(car);
+        return data
+    }
+)
 const updateById = createAsyncThunk(
     'carSlice/update',
     async ({id,car})=>{
         const {data} = await carService.updateById(id, car);
         return data
+    }
+);
+const deleteById = createAsyncThunk(
+    'carSlice.delete',
+    async ({id})=>{
+         await carService.deleteById(id);
+        return id
     }
 );
 
@@ -56,6 +77,8 @@ const {reducer:carReducer,actions:{setUpdateCar}} = carSlice;
 const carAction = {
     getAll,
     setUpdateCar,
-    updateById
+    updateById,
+    deleteById,
+    create
 }
 export {carReducer,carAction}

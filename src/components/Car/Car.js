@@ -12,6 +12,8 @@ export default function Car({car}){
          <div>price:{price}</div>
          <div>year:{year}</div>
             <button onClick={()=>dispatch(carAction.setUpdateCar(car))}>update</button>
+            <button onClick={()=>dispatch(carAction.deleteById({id}))}>Delete</button>
+
 
         </div>
     );

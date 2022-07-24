@@ -19,7 +19,12 @@ export default function CarFrom(){
     },[carUpdate])
 
     const submit = async (data)=> {
-     await dispatch(carAction.updateById({id:carUpdate.id, car:data}))
+        if(carUpdate){
+            await dispatch(carAction.updateById({id:carUpdate.id, car:data}))
+        }
+        else {
+            await dispatch(carAction.create({car:data}))
+        }
         reset()
     };
 
@@ -28,7 +33,9 @@ export default function CarFrom(){
             <input type={'text'} placeholder={'model'} {...register('model')}/>
             <input type={'text'} placeholder={'price'} {...register('price')}/>
             <input type={'text'} placeholder={'year'}  {...register('year')}/>
-            <button>Update</button>
+            <button>{carUpdate ? "update":'Create'}</button>
+            <button>Delete</button>
+
         </form>
     );
 }
